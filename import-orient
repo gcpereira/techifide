@@ -1,0 +1,23 @@
+#!/bin/bash
+
+usage() {
+    echo "usage: import-orient [user] [pass] [database] "
+    echo "  -user       OrientDB user"
+    echo "  -pass       OrientDB password"
+    echo "  -database   the .gz file to be import"
+    exit 1
+}
+
+# invoke  usage
+# call usage() function if database not supplied
+[[ $# -eq 0 ]] && usage
+
+user=$1
+pass=$2
+orientdb=$ORIENTDB_HOME     # PATH FOR THE ORIENTDB FOLDER
+host='remote:localhost'
+database=$3                 # THE DATABASE AND THE .GZ FILE MUST HAVE THE SAME NAME
+
+$orientdb/bin/console.sh "drop database $host/$database $user $pass;"
+$orientdb/bin/console.sh "create database plocal:$orientdb/databases/$database;"
+$orientdb/bin/console.sh "connect $host/$database $user $pass;import database migrations/$database.gz -preserveClusterIDs=true;"
