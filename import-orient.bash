@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# HOW TO IMPLEMENT
+# 
+# 1. create a enviroment var ORIENTDB_HOME setting to you orientdb folder Ex.: ORIENTDB_HOME=/etc/OrientDB
+# 2. save this script at your users bin folder Ex.: /Users/Gustavo/bin
+# 3. create a symbolic link to get rid of the .bash
+# $ ln -s import-orient.bash import-orient
+
 usage() {
     echo "usage: import-orient [user] [pass] [database] "
     echo "  -user       OrientDB user"
