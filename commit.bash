@@ -1,11 +1,14 @@
 #!/bin/bash
 # A simple script to automatic add the ticket code at the commit for better integration between Jira and Bitbucket
-#
+
 # HOW TO IMPLEMENT
 # 
 # 1. save this script at your users bin folder Ex.: /Users/Gustavo/bin
 # 2. create a symbolic link to get rid of the .bash
 # $ ln -s commit.bash commit
+
+# Use
+# $ commit 'Commit message goes here'
 
 
 # get the current branch
